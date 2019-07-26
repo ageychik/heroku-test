@@ -5,11 +5,8 @@ const mongoose = require('mongoose');
 const PORT = process.env.PORT || 5000;
 const routes = require('./server/api/index.js');
 
+require('dotenv').config();
 const app = express();
-
-if(process.env.NODE_ENV === 'dev'){
-    require('dotenv').config();
-}
 
 app
     .use(bodyParser.json())
