@@ -15,13 +15,14 @@ app.listen(PORT, () => {
     console.log(`Example app listening on port ${PORT}!`);
 });
 
-mongoose.connect(process.env.DB_NAME)
-    .then(() => {
-        console.log('database connected');
-    })
-    .catch((err) => {
-        console.log(err);
-    });
+console.log(process.env.DB_NAME)
+// mongoose.connect(process.env.DB_NAME)
+//     .then(() => {
+//         console.log('database connected');
+//     })
+//     .catch((err) => {
+//         console.log(err);
+//     });
 
   // .use(express.static(path.join(__dirname, 'dist')))
   // .set('dist', path.join(__dirname, 'dist'))
