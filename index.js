@@ -9,7 +9,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/dist'));
 
-require('dotenv').config();
+// require('dotenv').config();
 
 app.listen(PORT, () => {
     console.log(`Example app listening on port ${PORT}!`);
