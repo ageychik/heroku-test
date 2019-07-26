@@ -8,21 +8,9 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/dist'));
-
-// require('dotenv').config();
-
-const server = app.listen(PORT, () => {
-    const port = server.address().port;
-    console.log(`Example app listening on port ${port}!`);
+app.listen(PORT, () => {
+    console.log(`Example app listening on port ${PORT}!`);
 });
-
-// mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true })
-//     .then(() => {
-//         console.log('database connected');
-//     })
-//     .catch((err) => {
-//         console.log(err);
-//     });
 
   // .use(express.static(path.join(__dirname, 'dist')))
   // .set('dist', path.join(__dirname, 'dist'))
