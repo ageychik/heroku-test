@@ -11,8 +11,9 @@ app.use(express.static(__dirname + '/dist'));
 
 // require('dotenv').config();
 
-app.listen(PORT, () => {
-    console.log(`Example app listening on port ${PORT}!`);
+const server = app.listen(PORT, () => {
+    const port = server.address().port;
+    console.log(`Example app listening on port ${port}!`);
 });
 
 // mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true })
