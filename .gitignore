@@ -4,6 +4,7 @@ npm-debug.log
 .idea
 
 # Local development
+.env
 *.env
 *.dev
 .DS_Store
