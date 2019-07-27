@@ -54,7 +54,7 @@
     import modal from '../components/modal.vue';
     // import localData from '../local-settings.js';
 
-    const domain = localData.api_host || '';
+    const domain = '';
     export default {
         name: "demo",
         data() {

@@ -28,7 +28,7 @@
     import axios from 'axios';
     // import localData from '../local-settings.js';
 
-    const domain = localData.api_host || '';
+    const domain = '';
     export default {
         props: {
             modalTitle: String,
