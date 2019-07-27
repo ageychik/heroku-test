@@ -137,7 +137,7 @@
                     fields: {
                         firstName: this.getFieldModel({name: 'firstName', label: 'First name', required: true}),
                         lastName: this.getFieldModel({name: 'lastName', label: 'Last name', required: true}),
-                        mail: this.getFieldModel({name: 'email', label: 'Mail', type: 'email', required: true, mask: 'email'}),
+                        email: this.getFieldModel({name: 'email', label: 'Mail', type: 'email', required: true, mask: 'email'}),
                         username: this.getFieldModel({name: 'username', label: 'Username'}),
                         age: this.getFieldModel({name: 'age', label: 'Age'})
                     }
@@ -159,6 +159,19 @@
     }
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+    .table-icons-box {
+        display: flex;
+        .table-icon {
+            display: inline-block;
+            height: 21px;
+            width: 21px;
+            margin: 0 3px;
+            cursor: pointer;
+            transition: all .2s;
+            &:hover {
+                opacity: .8;
+            }
+        }
+    }
 </style>

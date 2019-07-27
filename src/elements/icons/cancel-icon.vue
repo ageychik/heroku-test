@@ -1,5 +1,5 @@
 <template>
-    <div class="cancel-icon">
+    <span class="cancel-icon">
         <svg viewBox="0 0 510 510" style="enable-background:new 0 0 510 510;" xml:space="preserve">
 
             <g id="cancel">
@@ -9,7 +9,7 @@
 
         </svg>
 
-    </div>
+    </span>
 </template>
 
 <script>

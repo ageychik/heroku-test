@@ -90,7 +90,7 @@
 
     @keyframes menu-icon {
         70% {
-            transform: scale(7);
+            transform: scale(5);
             opacity: 0;
         }
         71% {
@@ -246,7 +246,7 @@
             margin-right: 10px;
 
             &:hover {
-                animation: .2s linear menu-icon;
+                animation: .15s linear menu-icon;
                 fill: #111;
             }
         }

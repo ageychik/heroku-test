@@ -3,7 +3,6 @@ const model = require('../models/index.js');
 
 router
     .get('/', (req, res) => {
-        console.log('asdf')
         model.user.find()
             .then((userList) => {
                 res.json(userList);
@@ -38,10 +37,8 @@ router
 
     })
     .post('/add', (req, res) => {
-        let userData = req.query;
-
-        console.log(model.user);
-
+        let userData = req.body;
+        console.log(userData);
         model.user.create(userData)
             .then((userList) => {
                 res.json(userList);

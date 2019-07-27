@@ -1,5 +1,5 @@
 <template>
-    <div class="edit-icon">
+    <span class="edit-icon">
         <svg viewBox="0 0 300 300" style="enable-background:new 0 0 300 300;" xml:space="preserve">
 
             <g>
@@ -12,7 +12,7 @@
             </g>
 
         </svg>
-    </div>
+    </span>
 </template>
 
 <script>

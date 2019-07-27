@@ -26,7 +26,9 @@
 <script>
     import userForm from './user-form.vue';
     import axios from 'axios';
+    import localData from '../local-settings.js';
 
+    const domain = localData.api_host || '';
     export default {
         props: {
             modalTitle: String,
@@ -70,7 +72,7 @@
 
                     if(this.modalBody.id){
                         axios
-                            .get('http://localhost:5000/user_edit', {
+                            .get(domain + '/user_edit', {
                                 params: {
                                     data: data,
                                     id: this.modalBody.id
@@ -80,12 +82,11 @@
                                 this.$emit('close', response);
                             });
                     } else {
+                        console.log(data);
                         axios
-                            .get('http://localhost:5000/user_add', {
-                                params: data
-                            })
+                            .post(domain + '/api/users/add', data)
                             .then((response) => {
-                                this.$emit('close', response);
+                                this.$emit('close', response.data);
                             });
                     }
 
