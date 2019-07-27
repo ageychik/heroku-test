@@ -7,9 +7,7 @@ const routes = require('./server/api/index.js');
 
 const app = express();
 
-if(process.env.NODE_ENV === 'dev'){
-    require('dotenv').config();
-}
+require('dotenv').config();
 
 app
     .use(bodyParser.json())
