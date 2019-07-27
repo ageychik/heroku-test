@@ -1,54 +1,99 @@
 const router = require('express').Router();
-const model = require('../models/index.js');
+const userModel = require('../models/index.js').user;
 
 router
     .get('/', (req, res) => {
-        model.user.find()
+        userModel.find()
             .then((userList) => {
                 res.json(userList);
             })
             .catch((error) => {
-                console.log(error);
 
                 res.json({
                     ok: false,
-                    error: 'Error. Please try again later.'
+                    error: error
                 })
             })
     })
-    .get('/:id', (req, res) => {
-        if(!req.params) return console.log('Error, user not found. Please try again later.');
+    .get('/:username', (req, res) => {
+        let username = req.params.username;
 
-        model.user.findOne({id : req.params})
+        userModel.findOne({username : username})
             .then((data) => {
-                console.log(1, data)
-
                 res.json({
-                    status: 'ok',
+                    ok: true,
                     data: data
                 })
             })
-    })
-    .put('/:id', (req, res) => {
-        let userData = req.query;
-        console.log(userData)
-    })
-    .delete('/:id', (req, res) => {
-
-    })
-    .post('/add', (req, res) => {
-        let userData = req.body;
-        console.log(userData);
-        model.user.create(userData)
-            .then((userList) => {
-                res.json(userList);
-            })
             .catch((error) => {
-                console.log(error);
-
                 res.json({
                     ok: false,
-                    error: 'Error. Please try again later.'
+                    error: error
+                })
+            })
+    })
+    .put('/:username', (req, res) => {
+        let username = req.params.username;
+        userModel.findOneAndUpdate(
+            {username : username},
+            {$set : req.query},
+            {useFindAndModify: false},
+            ((error, doc) => {
+                if(error) throw error;
+
+                return doc;
+            })
+            )
+            .then((data) => {
+                res.json({
+                    ok: true,
+                    data: data
+                })
+            })
+            .catch((error) => {
+                res.json({
+                    ok: false,
+                    data: error
+                })
+            })
+    })
+    .delete('/:username', (req, res) => {
+        let username = req.params.username;
+        userModel.findOneAndDelete(
+            {username : username},
+            ((error, doc) => {
+                if(error) throw error;
+
+                return doc
+            })
+        )
+            .then((data) => {
+                res.json({
+                    ok: true,
+                    data: data
+                })
+            })
+            .catch((error) => {
+                res.json({
+                    ok: false,
+                    data: error
+                })
+            })
+    })
+    .post('/add', (req, res) => {
+        let userData = req.query;
+
+        userModel.create(userData)
+            .then((user) => {
+                res.json({
+                    ok: true,
+                    data: user
+                });
+            })
+            .catch((error) => {
+                res.json({
+                    ok: false,
+                    error: error
                 })
             });
     });
