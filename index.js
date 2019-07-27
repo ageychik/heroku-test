@@ -9,6 +9,11 @@ require('dotenv').config();
 const app = express();
 
 app
+    .use(function (req, res, next) {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+        next();
+    })
     .use(bodyParser.json())
     .use(express.static(__dirname + '/dist'))
     .use('/api', routes)
@@ -18,7 +23,7 @@ app
 
 mongoose
     .set('useCreateIndex', true)
-    .connect(process.env.MONGODB_URI, { useNewUrlParser: true })
+    .connect(process.env.MONGODB_URI, {useNewUrlParser: true})
     .then(() => {
         console.log('database connected');
     })

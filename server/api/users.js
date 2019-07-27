@@ -3,6 +3,7 @@ const model = require('../models/index.js');
 
 router
     .get('/', (req, res) => {
+        console.log('asdf')
         model.user.find()
             .then((userList) => {
                 res.json(userList);
