@@ -52,7 +52,7 @@
     import cancelIcon from '../elements/icons/cancel-icon.vue';
     import editIcon from '../elements/icons/edit-icon.vue';
     import modal from '../components/modal.vue';
-    import localData from '../local-settings.js';
+    // import localData from '../local-settings.js';
 
     const domain = localData.api_host || '';
     export default {

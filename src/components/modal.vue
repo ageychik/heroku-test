@@ -26,7 +26,7 @@
 <script>
     import userForm from './user-form.vue';
     import axios from 'axios';
-    import localData from '../local-settings.js';
+    // import localData from '../local-settings.js';
 
     const domain = localData.api_host || '';
     export default {
